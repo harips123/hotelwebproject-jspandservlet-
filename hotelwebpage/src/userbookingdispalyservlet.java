@@ -33,6 +33,8 @@ public class userbookingdispalyservlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
+		int booking_id,hotel_id;
+		String check_in_date,check_out_date,type_of_room;
 		
 		try
 		 {
@@ -48,20 +50,28 @@ public class userbookingdispalyservlet extends HttpServlet {
 			rs=ps.executeQuery();
 			while(rs.next())  
 			{
-				int booking_id= rs.getInt(1);
-				int hotel_id=rs.getInt(2);
-				String check_in_date=rs.getString(3);
-				String check_out_date=rs.getString(4);
-				String type_of_room =rs.getString(5);
+				 booking_id= rs.getInt(1);
+				 hotel_id=rs.getInt(2);
+				 check_in_date=rs.getString(3);
+				 check_out_date=rs.getString(4);
+				 type_of_room =rs.getString(5);
 				
-				
+				/*
 				out.println("booking_id:"+booking_id);
 				out.println("hotel_id :"+hotel_id);
 				out.println("check-in_date :"+check_in_date);
 				out.println("check_out_date :"+check_out_date);
-				out.println("type-of_room_booked :"+type_of_room); 
+				out.println("type-of_room_booked :"+type_of_room); */
 				
-				out.print("\n");
+				//out.print("\n");
+				 out.print("hello");
+				 session.setAttribute("booking_id",  booking_id);
+				 session.setAttribute("hotel_id",  hotel_id);
+				 session.setAttribute("check_in_date", check_in_date);
+				 session.setAttribute("check_out_date",check_out_date  );
+				 session.setAttribute("type_of_room", type_of_room );
+				 response.sendRedirect("mybooking.jsp");
+				 
 			}
 		
 			

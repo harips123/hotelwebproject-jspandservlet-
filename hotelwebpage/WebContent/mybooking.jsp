@@ -7,5 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<p><%=session.getAttribute("hotel_id") %></p>
+<p><%=session.getAttribute("booking_id") %></p>
+<p><%=session.getAttribute("check_in_date") %></p>
+<p><%=session.getAttribute("check_out_date") %></p>
+<p><%=session.getAttribute("type_of_room") %></p>
+
 </body>
 </html>

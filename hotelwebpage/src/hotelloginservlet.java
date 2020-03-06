@@ -42,6 +42,7 @@ public class hotelloginservlet extends HttpServlet {
 		String email=request.getParameter("email");
 		String passwords=request.getParameter("passwords");
 		int hotel_id;
+		String hotel_name,user_name,star_classification,contact_number,state;
 		PrintWriter out= response.getWriter();
 		try
 		{
@@ -58,10 +59,21 @@ public class hotelloginservlet extends HttpServlet {
 		if(rs.next())
 		{ 	
 			hotel_id=rs.getInt(1);
+			hotel_name=rs.getString(2);
+			user_name=rs.getString(4);
+			star_classification=rs.getString(6);
+			state=rs.getString(7);
+			contact_number=rs.getString(8);
+			
 			HttpSession session =request.getSession();
 			session.setAttribute("email",email);
 			session.setAttribute("hotel_id", hotel_id);
-		//	session.setAttribute("", value);
+			session.setAttribute("hotel_name", hotel_name);
+			session.setAttribute("user_name", user_name);
+			session.setAttribute("star_classification", star_classification);
+			session.setAttribute("state", state);
+			session.setAttribute("contact_number", contact_number);
+			
 			//System.out.print(hotel_id);
 	response.sendRedirect("hotelwelcome.jsp");
 		} else {

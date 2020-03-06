@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/newuserview.css"></link> 
+<link rel="stylesheet" type="text/css" href="css/newhotelview.css"></link> 
 
 </head>
 <body class="bg-img">
@@ -32,8 +32,8 @@
         user profile
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="userviewpage.jsp">view profile</a>
-        <a class="dropdown-item" href="userlogoutservlet">logout</a>
+        <a class="dropdown-item" href="hotelprofile.jsp">view profile</a>
+        <a class="dropdown-item" href="hotellogoutservlet">logout</a>
         <a class="dropdown-item" href="userdeleteservlet">delete account</a>
       </div>
     </li>
@@ -41,15 +41,16 @@
 </nav>
 <div class="profile-card">
 	<div class="image-container">
-		<img src="image/user.jpg" style="width: 100%">
+		<img src="image/hotelpic.png" style="width: 100%">
 	<div class="title">
 	<h1></h1>
 	</div>
 	</div>
 	<div class="main-container">
-	<p><i class="fa fa-user-circle info" ></i> <%=session.getAttribute("user_name") %></p>
-	<p><i class="fa fa-address-card-o info" ></i> <%=session.getAttribute("name") %></p>
+	<p><i class="fa fa-user-circle info" ></i> <%=session.getAttribute("hotel_name") %></p>
+	<p><i class="fa fa-address-card-o info" ></i> <%=session.getAttribute("user_name") %></p>
 	<p><i class="fa fa-envelope-square info"></i> <%=session.getAttribute("email") %></p>
+	<p><i class="fa fa-star info" ></i> <%=session.getAttribute("star_classification") %></p>
 	<p><i class="fa fa-phone-square info"></i> <%=session.getAttribute("contact_number") %></p>
 	<hr>
 	<p><b><i class="fa fa-asterrisk info" ></i></b></p>

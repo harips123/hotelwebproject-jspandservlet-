@@ -43,8 +43,8 @@ public class bookingdetailsservlet extends HttpServlet {
 		String hotel_id= request.getParameter("hotel_id");
 		String user_id=request.getParameter("user_id");
 		String total_number_of_pax= request.getParameter("total_number_of_pax");
-		String check_in_date = request.getParameter("date");
-		String check_out_date =request.getParameter("date");
+		String check_in_date = request.getParameter("check_in_date");
+		String check_out_date =request.getParameter("check_out_date");
 		String type_of_room= request.getParameter("type_of_room");
 		PrintWriter out=  response.getWriter();
 		try {

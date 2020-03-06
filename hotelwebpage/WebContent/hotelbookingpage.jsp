@@ -20,7 +20,8 @@
 
 <script>
     $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var date_input=$('input[name="check_in_date"]'); 
+        //var date_input=$('input[name="check_out_date"]');//our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
             format: 'yyyy/mm/dd',
@@ -29,6 +30,18 @@
             autoclose: true,
         })
     })
+        $(document).ready(function(){
+       // var date_input=$('input[name="check_in_date"]'); 
+       var date_input=$('input[name="check_out_date"]');//our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'yyyy/mm/dd',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+    
     
 </script>
 </head>
@@ -69,11 +82,11 @@
        
  <div class="form-group"> <!-- Date input -->
         <label class="control-label" for="date">Check-in </label>
-        <input class="form-control" id="date" name="date" placeholder='yyyy/mm/dd' type="text"/>
+        <input class="form-control" id="date" name="check_in_date" placeholder='yyyy/mm/dd' type="text"/>
       </div>
        <div class="form-group"> <!-- Date input -->
         <label class="control-label" for="date">Check-out</label>
-        <input class="form-control" id="date" name="date" placeholder='yyyy/mm/dd' type="text"/>
+        <input class="form-control" id="dateout" name="check_out_date" placeholder='yyyy/mm/dd' type="text"/>
       </div>
       <label class="contro-label" for="radio">Type of Room</label>
      <div class="radio-inline">

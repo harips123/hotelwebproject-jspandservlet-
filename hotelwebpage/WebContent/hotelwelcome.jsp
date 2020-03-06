@@ -41,7 +41,7 @@ You are not logged in<br/>
         hotel profile
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="userprofile.jsp">view profile</a>
+        <a class="dropdown-item" href="hotelprofile.jsp">view profile</a>
         <a class="dropdown-item" href="hotellogoutservlet">logout</a>
         <a class="dropdown-item" href="userdelete.jsp">delete account</a>
       </div>

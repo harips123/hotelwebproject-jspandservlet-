@@ -42,6 +42,7 @@ public class hotelbookingdisplayservlet extends HttpServlet {
 		//ArrayList row = new ArrayList();
 		// ArrayList<hotelbookingdisplayservlet> hotelbookings = new ArrayList<hotelbookingdisplayservlet>();
 		// hotelbookingdisplayservlet hotelbooking = null;
+		out.println("<html><body>");
 		try
 		 {
 			
@@ -54,6 +55,9 @@ public class hotelbookingdisplayservlet extends HttpServlet {
 			ps=con.prepareStatement(query);
 			ps.setInt(1, s);
 			rs=ps.executeQuery();
+			out.print("<hr align=center size=5 width=100%>");
+			out.print("<table border=1 bgcolor=lightblue>");
+			out.println("<tr><th>booking_id</th><th>user_id</th><th>check_in_date</th><th>check_out_date</th><th>type_of_room</th><tr>"); 
 			while(rs.next())  
 			{ 
 				int booking_id= rs.getInt(1);
@@ -62,18 +66,23 @@ public class hotelbookingdisplayservlet extends HttpServlet {
 				String check_out_date = rs.getString(4);
 				String type_of_room = rs.getString(5);
 				
-				out.println("booking_id 	:"+booking_id);
+				out.println("<tr><td>" + booking_id + "</td><td>" +user_id+ "</td><td>" + check_in_date + "</td><td>"+check_out_date+"</td><td>"+type_of_room+"</td></tr>"); 
+				
+				/*out.println("booking_id 	:"+booking_id);
 				out.println("user_id 		:  "+user_id);
 				out.println("check_in_date  :"+check_in_date);
 				out.println("check_out_date :"+check_out_date);
 				out.println("type_of_room 	:"+type_of_room);
-				out.print("\n");
+				out.print("\n");*/
 	
 				//request.setAttribute("booking_id", booking_id);
 				
 				//response.sendRedirect("view.jsp");
 			
 			}
+			out.print("</center>");
+			 out.println("</table>");  
+            out.println("</html></body>");
 			}catch(Exception e)
 		{
 				e.printStackTrace();

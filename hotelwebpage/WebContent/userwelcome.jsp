@@ -28,10 +28,18 @@
     <li class="nav-item">
       <a class="nav-link" href="userwelcome.jsp">hotel</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="userbookingdispalyservlet">my bookings</a>
+        <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+        My Booking
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="userbookingdispalyservlet">view all my bookings</a>
+        <a class="dropdown-item" href="viewcancelledbooking.jsp">view cancelled bookings</a>
+        <a class="dropdown-item" href="viewcompletedbooking.jsp">completed </a>
+        <a class="dropdown-item" href="viewupcomingbooking.jsp">upcoming </a>
+      </div>
     </li>
-
     <!-- Dropdown -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="profile.jsp" id="navbardrop" data-toggle="dropdown">

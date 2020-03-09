@@ -51,7 +51,7 @@ public class bookingdetailsservlet extends HttpServlet {
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelwebpage","root","root");
-			PreparedStatement ps= (PreparedStatement)con.prepareStatement("insert into booking_details(hotel_id,user_id,total_number_of_pax,check_in_date,check_out_date,type_of_room)values(?,?,?,?,?,?)");
+			PreparedStatement ps= (PreparedStatement)con.prepareStatement("insert into booking_details(hotel_id,user_id,total_number_of_pax,check_in_date,check_out_date,type_of_room,is_cancelled)values(?,?,?,?,?,?,?)");
 			
 			{
 			ps.setString(1, hotel_id );
@@ -60,9 +60,11 @@ public class bookingdetailsservlet extends HttpServlet {
 			ps.setString(4,check_in_date);
 			ps.setString(5, check_out_date);
 			ps.setString(6, type_of_room);
+			ps.setBoolean(7, false);
+			//ps.setBoolean(8, false);
 			ps.executeUpdate();
 			out.print("successfully");
-			response.sendRedirect("userbookingdispalyservlet");
+			response.sendRedirect("viewallmybookings.jsp");
 			}
 		}
 		catch(Exception e)

@@ -55,7 +55,7 @@
       <a class="nav-link" href="userwelcome.jsp">hotel</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link"  href="userbookingdispalyservlet">my bookings</a>
+      <a class="nav-link"  href="viewallmybookings.jsp">my bookings</a>
     </li>
 
     <!-- Dropdown -->

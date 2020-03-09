@@ -13,28 +13,35 @@
 <link rel="stylesheet" type="text/css" href="css/newhotelview.css"></link> 
 
 </head>
-<body class="bg-img">
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 <div class="media border p-3">
 <img src="image/download(1).jpg"  style="width:25px;"></div>
   <!-- Links -->
   <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="userwelcome.jsp">hotel</a>
+  <li class="nav-item">
+  <a class="nav-link" href="hotelwelcome.jsp">hotel home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="userbookingdispalyservlet">my bookings</a>
+   <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+        Booking Details
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="hotelviewallbookings.jsp">view all Bookings</a>
+        <a class="dropdown-item" href="hotelviewcompletedbooking.jsp">view completed Bookings</a>
+        <a class="dropdown-item" href="hotelviewupcomingbookings.jsp">view Upcoming Bookings</a>
+           <a class="dropdown-item" href="hotelviewcancelledbooking.jsp">view cancelled Bookings</a>
+      </div>
     </li>
 
     <!-- Dropdown -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="profile.jsp" id="navbardrop" data-toggle="dropdown">
-        user profile
+        hotel profile
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="hotelprofile.jsp">view profile</a>
         <a class="dropdown-item" href="hotellogoutservlet">logout</a>
-        <a class="dropdown-item" href="userdeleteservlet">delete account</a>
+        <a class="dropdown-item" href="userdelete.jsp">delete account</a>
       </div>
     </li>
   </ul>

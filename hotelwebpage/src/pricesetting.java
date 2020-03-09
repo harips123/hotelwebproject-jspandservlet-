@@ -1,28 +1,26 @@
 
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
-
+import java.io.PrintWriter;
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class roomcancelationservlet
+ * Servlet implementation class pricesetting
  */
-@WebServlet("/roomcancelationservlet")
-public class roomcancelationservlet extends HttpServlet {
+@WebServlet("/pricesetting")
+public class pricesetting extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public roomcancelationservlet() {
+    public pricesetting() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,33 +31,34 @@ public class roomcancelationservlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	String booking_id =request.getParameter("booking_id");
-		//String hotel_id = request.getParameter("hotel_id");
-	//	String user_id = request.getParameter("user_id");
-	//	String reason_to_cancel = request.getParameter("reason_to_cancel");
-		//String hotel_id= request.getParameter("hotel_id");
+		PrintWriter out = response.getWriter();
+		HttpSession session= request.getSession();
+		int hotel_id = (int)session.getAttribute("hotel_id");
+		String price_for_single_bed =request.getParameter("price_for_single_bed");
+		String price_for_double_bed=request.getParameter("price_for_double_bed");
 		
-		
-		try {
-	
+		try
+		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelwebpage","root","root");
-		//	PreparedStatement ps= null;
-			PreparedStatement ps1=null;
-			//ResultSet rs=null;
-			String query="update booking_details  set is_cancelled = ?  where id = ? ";
-			ps1=con.prepareStatement(query);
-			ps1.setBoolean(1, true);
-			ps1.setString(2, booking_id);
+			PreparedStatement ps= null;
+			String query="insert into price_details(hotel_id,price_for_single_bed,price_for_double_bed)values(?,?,?) ";
+			ps=con.prepareStatement(query);
+			ps.setInt(1, hotel_id);
+			ps.setString(2, price_for_single_bed);
+			ps.setString(3, price_for_double_bed);
 			
-			ps1.executeUpdate();
-			response.sendRedirect("viewallmybookings.jsp");
+			ps.executeUpdate();
+			out.println("price seted");
+			
+			
+			
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();
+		e.printStackTrace();	
+			
 		}
-		
 	}
 
 	/**

@@ -27,10 +27,18 @@
     <li class="nav-item">
       <a class="nav-link" href="userwelcome.jsp">hotel</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="userbookingdispalyservlet">my bookings</a>
+        <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+        My Booking
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="viewallmybookings.jsp">view all my bookings</a>
+        <a class="dropdown-item" href="viewcancelledbooking.jsp">view cancelled bookings</a>
+        <a class="dropdown-item" href="viewcompletedbooking.jsp">completed </a>
+        <a class="dropdown-item" href="viewupcomingbooking.jsp">upcoming </a>
+      </div>
     </li>
-
     <!-- Dropdown -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="profile.jsp" id="navbardrop" data-toggle="dropdown">
@@ -79,8 +87,9 @@
 <input type="text" name="booking_id"class="form-control" value="<%=request.getParameter("booking_id") %>" readonly>
 <label for ="first_name" >user id:</label>
 <input type="text" name="user_id"class="form-control" value= "<%=session.getAttribute("user_id") %>" readonly>
-<label for ="number of persons" class="control-label" >Reason to cancel</label>
-<input type="text" name="reason_to_cancel" class="form-control" >
+<label for ="first_name" >hotel id:</label>
+<input type="text" name="hotel_id"class="form-control" value= "<%=session.getAttribute("hotel_id") %>" readonly>
+>
 <br>
         <input type="submit" class="submit" value="cancel booking">
         

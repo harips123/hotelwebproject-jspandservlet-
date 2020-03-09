@@ -34,7 +34,7 @@
         My Booking
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="userbookingdispalyservlet">view all my bookings</a>
+        <a class="dropdown-item" href="viewallmybookings.jsp">view all my bookings</a>
         <a class="dropdown-item" href="viewcancelledbooking.jsp">view cancelled bookings</a>
         <a class="dropdown-item" href="viewcompletedbooking.jsp">completed </a>
         <a class="dropdown-item" href="viewupcomingbooking.jsp">upcoming </a>

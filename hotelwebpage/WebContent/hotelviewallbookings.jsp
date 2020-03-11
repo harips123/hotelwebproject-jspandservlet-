@@ -63,7 +63,7 @@ try{
 	out.print("<div class='container'>");
 	out.print("<h2>All  Bookings</h2>");
 	out.print(" <table class= 'table table-striped'>");
-	out.println("<thead><tr><th>booking_id</th><th>user_id</th><th>check_in_date</th><th>check_out_date</th><th>type_of_room</th><th>price to be paid></th><tr></thead>"); 
+	out.println("<thead><tr><th>booking_id</th><th>user_id</th><th>check_in_date</th><th>check_out_date</th><th>type_of_room</th><tr></thead>"); 
 	while(rs.next())  
 	{ 
 		int booking_id= rs.getInt(1);

@@ -42,6 +42,13 @@
         })
     })
     
+  </script>
+  <script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+
+    
     
 </script>
 </head>
@@ -71,6 +78,35 @@
     </li>
   </ul>
 </nav>
+<%@ page import ="java.sql.*"%>
+<%!String hotel_id,price_for_Single_bed,price_for_double_bed; %>
+<%
+try
+{
+	String s=request.getParameter("hotelname");
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelwebpage","root","root");
+	PreparedStatement ps= null;
+	ResultSet rs=null;
+	String query="select * from price_details where hotel_id = ? ";
+	ps=con.prepareStatement(query);
+	ps.setString(1, s);
+	rs=ps.executeQuery();
+	while(rs.next())
+	{
+		HttpSession session1 = request.getSession();
+		session1.setAttribute("price_for_Single_bed", price_for_Single_bed);
+		session1.setAttribute("price_for_double_bed", price_for_Single_bed);
+		price_for_Single_bed = rs.getString(3);
+		price_for_double_bed = rs.getString(4);
+		
+	}
+}
+catch(Exception e)
+{
+e.printStackTrace();	
+}
+%>
 <div class="main">
 <form name="form1" action="bookingdetailsservlet" method="post">
 <label for ="first_name" >Hotel id:</label>
@@ -90,13 +126,16 @@
       </div>
       <label class="contro-label" for="radio">Type of Room</label>
      <div class="radio-inline">
-     <input type="radio" name="type_of_room"  value="double deluxe"checked> Double Deluxe room
-      <input type="radio" name="type_of_room" value="Single bed">Single Bed
+    <input type="radio" name="type_of_room" data-toggle="tooltip" data-placement="bottom" title="<%="price for double bed is :"+price_for_double_bed%>" value="double deluxe" > Double Deluxe room
+      <input type="radio" name="type_of_room"  data-toggle="tooltip" data-placement="bottom" title="<%="price for single bed is :"+price_for_Single_bed%>" value="Single bed">Single Bed
     </div>
+ 
+
     <div class="form-group"> <!-- Submit button -->
         <input type="submit" class="submit" value="confirm booking">
       </div> 
     </form>
     </div>
+    
 </body>
 </html>

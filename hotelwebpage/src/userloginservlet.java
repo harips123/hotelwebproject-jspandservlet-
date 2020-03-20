@@ -1,6 +1,8 @@
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +42,8 @@ public class userloginservlet extends HttpServlet {
 		String passwords=request.getParameter("passwords");
 		int user_id ;
 		String name,email,contact_number;
+		PrintWriter out = response.getWriter();
+		
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -72,8 +76,11 @@ public class userloginservlet extends HttpServlet {
 //System.out.println(email);
 //System.out.println(contact_number);
 		response.sendRedirect("userwelcome.jsp");
-		} else {
-		    System.out.println("Invalid password <a href='loginpage.jsp'>try again</a>");
+		} 
+		else {
+			out.println("<html>");
+		    out.println("Invalid password or id <a href=loginpage.jsp>try again</a>");
+		    out.println("</html>");
 		}
 		}
 		catch(Exception e)

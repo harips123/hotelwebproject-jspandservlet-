@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Servlet implementation class hotelloginservlet
@@ -46,9 +48,19 @@ public class hotelloginservlet extends HttpServlet {
 		PrintWriter out= response.getWriter();
 		try
 		{
+			   SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");  
+			    Date date = new Date(); 
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelwebpage","root","root");
 			String query="select * from hotel_details where email = ? and passwords = ?  ";
+			String  s="insert into login_details(user_name_or_hotel_email_id,type_of_user,login_dateandtime)values(?,?,?)";
+			PreparedStatement pst=(PreparedStatement)con.prepareStatement(s);
+			pst.setString(1, email);
+			pst.setInt(2, 2);
+			pst.setString(3,formatter.format(date));
+			
+			pst.executeUpdate();
+			
 			PreparedStatement st=(PreparedStatement)con.prepareStatement(query); 
 			//Statement st= con.createStatement();
 			st.setString(1, email);

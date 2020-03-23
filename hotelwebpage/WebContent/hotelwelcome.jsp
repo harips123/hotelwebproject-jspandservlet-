@@ -27,7 +27,10 @@
 You are not logged in<br/>
 <a href="hoteloginpage.jsp">Please Login</a>
 <%} else {%>
-
+ <div class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>last login date and time: </strong><%=session.getAttribute("dateandtime") %>
+</div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 <div class="media border p-3">
 <img src="image/download(1).jpg"  style="width:25px;"></div>

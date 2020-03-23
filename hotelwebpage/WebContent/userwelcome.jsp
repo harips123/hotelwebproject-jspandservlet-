@@ -8,7 +8,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/userwelcomepage.css"></link>   <style>
+  <link rel="stylesheet" type="text/css" href="css/userwelcomepage.css"></link>  
+   <style>
 
   /* Make the image fully responsive */
   .carousel-inner img {
@@ -16,10 +17,17 @@
       height: 30em;
   }
   </style>
+  <script>
+ //   setTimeout("window.location.href='login.html';",time);
+ //example:
+
+    setTimeout("window.location.href='userlogoutservlet';",6000); // after 1 minutes
+</script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
+
  <div class="alert alert-success alert-dismissible">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>last login date and time: </strong><%=session.getAttribute("dateandtime") %>

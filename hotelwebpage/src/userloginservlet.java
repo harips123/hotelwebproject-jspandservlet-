@@ -89,6 +89,8 @@ public class userloginservlet extends HttpServlet {
 			session.setAttribute("email", email);
 			session.setAttribute("contact_number", contact_number);
 			session.setAttribute("dateandtime", dateandtime);
+			
+			session.setMaxInactiveInterval(20000);
 //System.out.println(user_id);
 //System.out.println(user_name);
 //System.out.println(name);
